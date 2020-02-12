@@ -37,6 +37,7 @@ buildscript {
     classpath(deps.build.gradlePlugins.playPublisher)
     classpath(deps.build.gradlePlugins.spotless)
     classpath(deps.build.gradlePlugins.redacted)
+    classpath("com.google.protobuf:protobuf-gradle-plugin:0.8.11")
   }
 }
 

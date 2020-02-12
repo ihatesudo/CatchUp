@@ -13,12 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.google.protobuf.gradle.generateProtoTasks
+import com.google.protobuf.gradle.protobuf
+import com.google.protobuf.gradle.protoc
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   id("com.android.library")
   kotlin("android")
   id("dev.zacsweers.redacted.redacted-gradle-plugin")
+}
+
+apply {
+  plugin("com.google.protobuf")
 }
 
 android {
@@ -66,6 +73,8 @@ dependencies {
   implementation(deps.android.androidx.core)
   implementation(deps.android.androidx.design)
   implementation(deps.rx.android)
+  implementation("com.google.protobuf:protobuf-javalite:3.11.3")
+  implementation("com.google.protobuf:protobuf-java:3.11.3")
 
   api(deps.android.androidx.coreKtx)
   api(deps.dagger.runtime)
@@ -75,6 +84,7 @@ dependencies {
   api(deps.misc.timber)
   api(deps.okhttp.core)
   api(deps.rx.java)
+  api(deps.misc.okio)
 
   implementation(deps.misc.unbescape)
 
