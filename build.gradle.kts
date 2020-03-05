@@ -25,6 +25,15 @@ buildscript {
     maven { url = uri(deps.build.repositories.kotlinx) }
     maven { url = uri(deps.build.repositories.plugins) }
     maven { url = uri(deps.build.repositories.snapshots) }
+    exclusiveContent {
+      forRepository {
+        // For R8/D8 releases
+        maven("https://storage.googleapis.com/r8-releases/raw")
+      }
+      filter {
+        includeModule("com.android.tools", "r8")
+      }
+    }
   }
 
   dependencies {
